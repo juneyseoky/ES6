@@ -1,0 +1,65 @@
+@charset "UTF-8";
+@import url(style_Reset.css);
+
+div#wrap {
+  width: 350px;
+  padding: 10px;
+  border: 4px solid #aaa;
+  border-radius: 4px;
+  margin: 10px auto;
+}
+
+h1 {
+  text-align: center;
+}
+hr {
+  margin: 10px 0;
+}
+
+main#main {
+  padding: 0 10px;
+  /* border: 1px solid #000; */
+}
+
+label#insCnt {
+  margin-bottom: 20px;
+  display: block;
+}
+label#insCnt span {
+  font-size: 18px;
+}
+label#insCnt input {
+  width: 50px;
+  font-size: 18px;
+  padding: 3px 6px 4px;
+  margin-left: 20px;
+}
+
+fieldset {
+  border: none;
+  margin-bottom: 15px;
+}
+fieldset label{
+  margin-right: 18px;
+}
+fieldset label input[type=radio] {
+  width: 16px;
+  height: 16px;
+  transform: translateY(2px);
+}
+
+button#resBtn {
+  width: 200px;
+  font-size: 20px;
+  padding: 6px;
+  border: 0.5px solid #000;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+div#resArea {
+  margin: 15px 0;
+}
+div#resArea p {
+  font-size: 17px;
+}

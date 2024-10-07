@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For-Of 제어문</title>
+</head>
+
+<body>
+    <h1>For-Of 제어문</h1>
+    <script>
+        // const ary = [5, -3, 14];
+        // // For-Of 는 배열의 index가 아닌 value 값을 가져온다.
+        // for (let v of ary) {
+        //     console.log(typeof (v));
+        // }
+
+        const obj = {
+            'brand': "GM",
+            'model': "크래버스",
+            'type': "SUV"
+        }
+        for (let k in obj) {
+            console.log(k, obj[k]);
+        }
+
+        // const obj = new Map([
+        //     ['brand', "GM"],
+        //     ['model', "크래버스"],
+        //     ['type', "SUV"]
+        // ])
+        // for (let [k, v] of obj) {
+        //     console.log(k, v);
+        // }
+    </script>
+</body>
+
+</html>

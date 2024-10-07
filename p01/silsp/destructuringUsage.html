@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>사용방법</h1>
+    <script>
+        const person = {
+            firstName: "Jone",
+            lastName: "Wick",
+            age: 35
+        };
+
+        let { lastName: la, firstName: f } = person;
+        console.log(`${f + " " + la}`);
+        console.log("----------------------------");
+
+        const fruit = ["Apple", "Banana", "Mango", "lemon"];
+
+        let [f1, f2] = fruit;
+        console.log(`${f1 + ", " + f2}`);
+
+        let [a, , , l] = fruit;
+        console.log(`${a + ", " + l}`);
+
+        let { [1]: b, [2]: m } = fruit; // 인덱스 번호로 가져올때는 대괄호 사용
+        console.log(`${b + ", " + m}`);
+        console.log("----------------------------");
+
+        const numAry = [10, 20, 30, 40, 50];// 펼침 연산자
+        let [o, t, ...rest] = numAry; // ...변수 는 나머지 연산자
+        console.log(`o 값 : ${o}`);
+        console.log(`t 값 : ${t}`);
+        console.log(`rest 값 : ${rest}`);
+        console.log("----------------------------");
+        let txt = `lemon`;
+        let [a1, a2, a3] = txt;
+        console.log(`a2 : ${a2}`);
+        console.log("----------------------------");
+        let [...s] = txt;
+        console.log(`s : ${s}`);
+
+    </script>
+</body>
+
+</html>

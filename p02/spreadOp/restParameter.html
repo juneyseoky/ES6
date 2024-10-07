@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>펼침연산자를 사용한 나머지 파라미터</title>
+
+</head>
+
+<body>
+    <h1>나머지 파라미터</h1>
+    <script>
+        // function fnSum(...args) { // ...args => 나머지 매개변수
+        //     let sum = 0;
+        //     console.log(args);
+        //     for (let i = 0; i < args.length; i++) {
+        //         sum += args[i];
+        //     }
+        //     return sum;
+        // }
+        // let x = fnSum(4, 9, 16, 25);
+        // console.log(x)
+
+        const numbers = [22, 55, 21, 87, 56];
+        let maxValue = Math.max(...numbers);
+        console.log(`최대값(maxValue) : ${maxValue}`);
+    </script>
+</body>
+
+</html>

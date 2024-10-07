@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>최소/최대 누적 값</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>누적구하기</h1>
+        <hr>
+        <p>[숫자 2개 입력]</p>
+        <label>
+            <span>숫자1</span>
+            <input type="text" id="firstNum">
+        </label>
+        <label>
+            <span>숫자2</span>
+            <input type="text" id="secondNum">
+        </label>
+        <button>결과보기</button>
+        <div id="resBox">
+
+        </div>
+    </div>
+    <script>
+        const resBnt = document.querySelector("button");
+        resBnt.addEventListener("click", () => {
+            const firstNum = document.querySelector("input#firstNum").value;
+            const secondNum = document.querySelector("input#secondNum").value;
+            let list = [firstNum, secondNum];
+
+
+            let min = Math.min(...list);
+            let max = Math.max(...list);
+            let res = fnSum(min, max);
+            let tag = `<span>${min}부터 ${max}까지의 누적 합 : ${res}</span>`
+            document.querySelector("#resBox").innerHTML = tag;
+            // console.log(min, max);
+        })
+
+        function fnSum(min, max) {
+            let sum = 0;
+            for (min; min <= max; min++) {
+                sum += min;
+            }
+            return sum;
+        }
+    </script>
+</body>
+
+</html>

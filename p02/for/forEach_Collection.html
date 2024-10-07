@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach Collection</title>
+</head>
+
+<body>
+    <span>span1</span>
+    <span>span2</span>
+    <a href="#" style="text-decoration: none;">a요소</a>
+    <span>span3</span>
+    <button>클릭</button>
+
+    <script>
+        const dom = document.querySelector("button");
+        dom.addEventListener("click", () => {
+            const spanDom = document.querySelectorAll("span");
+            spanDom.forEach((e, i) => {
+                val = e.innerText;
+                idx = i;
+                console.log(`val : ${val}`);
+                console.log(`idx : ${idx}`);
+            });
+        });
+
+        function test() {
+
+        }
+    </script>
+</body>
+
+</html>

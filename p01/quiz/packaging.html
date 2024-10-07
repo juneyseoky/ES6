@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>과일포장</h1>
+        <hr>
+        <main id="main">
+            <label>
+                <span>개수 입력(20개 이상 입력)</span>
+                <input type="text" id="count" autofocus>
+            </label>
+            <fieldset>
+                <label for="">
+                    <input type="radio" name="size" value="big">
+                    <span>대과</span>
+                </label>
+                <label for="">
+                    <input type="radio" name="size" value="middle">
+                    <span>중과</span>
+                </label>
+                <label for="">
+                    <input type="radio" name="size" value="small">
+                    <span>소과</span>
+                </label>
+            </fieldset>
+            <button>결과확인</button>
+        </main>
+        <div id="resBox"></div>
+    </div>
+    <script src="script/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수험생 성적 처리</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>[수험생 성적처리]</h1>
+
+        <main id="main">
+            <div class="score">
+                <span>점수1
+                </span>
+                <input type="text" id="">
+            </div>
+            <div class="score">
+                <span>점수2
+                </span>
+                <input type="text" id="">
+            </div>
+            <div class="score">
+                <span>점수3
+                </span>
+                <input type="text" id="">
+            </div>
+            <div class="score">
+                <span>점수4
+                </span>
+                <input type="text" id="">
+            </div>
+            <div class="score">
+                <span>점수5
+                </span>
+                <input type="text" id="">
+            </div>
+            <div id="btnArea">
+                <button>결과보기</button>
+            </div>
+        </main>
+        <div id="txtArea">
+            <div id="avg">
+                <span>1. 응시자 평균 : </span>
+                <span id="avgTxt"> </span>
+            </div>
+            <div id="bester">
+                <span>2. 성적 우수자 : </span>
+                <span id="besterTxt"> </span>
+            </div>
+            <div id="sort">
+                <span>3. 석차 : </span>
+                <span id="sortTxt"> </span>
+            </div>
+        </div>
+    </div>
+    <script>
+        const submitBtn = document.querySelector("button");
+        const resArea = document.querySelector("#sortTxt");
+        const avgArea = document.querySelector("#avgTxt");
+        const besterArea = document.querySelector("#besterTxt");
+        let array = [];
+        submitBtn.addEventListener("click", () => {
+            let listDom = document.querySelectorAll("input");
+            listDom.forEach((v, i) => {
+                if (parseInt(v.value)) {
+                    array.push(parseInt(v.value));
+                }
+                console.log(parseInt(v.value));
+            });
+            array.sort((a, b) => b - a);
+            besterArea.innerText = array[0];
+            resArea.innerText = array.join(", ");
+            console.log(array.join(", "));
+            let num = avg(array) / array.length;
+            console.log(num.toFixed(1));
+            avgArea.innerText = num.toFixed(1);
+        });
+
+        function avg(ary) {
+            let sum = 0;
+            ary.forEach((v, i) => {
+                sum += v;
+            })
+            return sum;
+        }
+    </script>
+</body>
+
+</html>

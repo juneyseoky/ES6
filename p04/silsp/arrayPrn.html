@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 프린트</title>
+</head>
+
+<body>
+    <h1>배열 메서드</h1>
+    <div id="res"></div>
+    <script>
+        const score = [4, 2, 5, 13, 9];
+
+        let res = score.map((v, i, a) => {
+            return v * 2;
+        });
+        res = res.join(", ");
+
+        console.log(res);
+
+        const filterAry = score.filter((v, i, a) => {
+            return v > 5;
+        });
+        res = filterAry.join(", ");
+
+        console.log(res);
+
+        const fruits = ["banana", "apple", "mango", "Orange"];
+        const keys = fruits.entries();
+
+        let txt = "";
+
+        for (let x of keys) {
+            txt += x + "br";
+            document.querySelector("#res").innerText = txt;
+        }
+    </script>
+</body>
+
+</html>

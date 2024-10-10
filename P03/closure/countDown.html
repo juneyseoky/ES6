@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+    <style>
+        div#wrap {
+            width: 100px;
+            padding: 10px 20px;
+            border: 1px solid #aaa;
+            margin: 0 auto;
+            justify-content: center;
+            display: flex;
+        }
+
+        div#numBox {
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+        }
+
+        div#num {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            padding: 3px 2px;
+            border: 1px solid #000;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="numBox">
+            <div id="num">
+                10
+            </div>
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+        </div>
+    </div>
+
+    <script>
+        const startBtn = document.querySelector("#start");
+        const stopBtn = document.querySelector("#stop");
+        let numDom = document.querySelector("div#num");
+        let num = numDom.innerText;
+        let intervalId;
+
+        // function down() {
+        // let numDom = document.querySelector("div#num");
+        // let num = Number(numDom.innerText);
+        // let num = numDom.innerText;
+        // }
+        startBtn.addEventListener("click", () => {
+            if (!intervalId) {
+                intervalId = setInterval(() => {
+                    num--;
+                    if (num < 0) num = 10;
+                    numDom.innerText = num;
+                }, 1000);
+            }
+        });
+        stopBtn.addEventListener("click", () => {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        });
+
+    </script>
+</body>
+
+</html>

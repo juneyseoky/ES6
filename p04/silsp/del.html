@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 요소 제거</title>
+</head>
+
+<body>
+    <h1>배열 요소 제거</h1>
+    <script>
+
+        const ary = [5, 2, 7, 20, 25];
+        // 배열 요소 제거 
+        ary.pop();      // 제일 마지막 요소 제거
+        console.log(ary.toString());
+        ary.shift();    // 제일 처음 요소 제거
+        console.log(ary.toString());
+
+        ary.splice(0, 2);   // (a, b) a부터 b 앞까지 잘라내기
+        console.log(ary.toString());
+
+        ary.push(5);    // 제일 마지막 요소에 추가
+        console.log(ary.toString());
+        ary.unshift(9); // 제일 처음 요소에 추가
+        console.log(ary.toString());
+    </script>
+</body>
+
+</html>

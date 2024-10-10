@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클로저 실습</title>
+</head>
+
+<body>
+    <h1>클로저 실습</h1>
+    <script>
+
+
+        let test = function () {
+            let num = 0;
+            return (a = 5) => [++num, a];
+        };
+        let fnRes = test();
+        console.log(fnRes(3));
+        console.log(fnRes());
+        console.log(fnRes());
+
+    </script>
+</body>
+
+</html>

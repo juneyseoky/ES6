@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inch, cm transform</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <h3>[단위 변환]</h3>
+        <fieldset>
+            <label>
+                <input type="radio" name="rdo" value="c2i">
+                <span>cm → inch</span>
+            </label>
+            <label>
+                <input type="radio" name="rdo" value="i2c">
+                <span>cm → inch</span>
+            </label>
+        </fieldset>
+        <div id="insArea">
+            <label>
+                <span id="selectCheck">센티(cm)미터 입력</span>
+                <input type="text" id="insData">
+                <button type="button">결과보기</button>
+            </label>
+        </div>
+        <div id="resBox">
+            결과출력
+        </div>
+    </div>
+    <script src="script/script.js"></script>
+</body>
+
+</html>

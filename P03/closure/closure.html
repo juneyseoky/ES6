@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클로저</title>
+</head>
+
+<body>
+    <h1>Closure(클로저)</h1>
+    <script>
+        // const closure = function () {
+        //     let cnt = 0;
+        //     return function () { // 클로저(함수)
+        //         return ++cnt; // 함수안에서 return 함수() (=클로저)
+        //     };
+        // }();
+        // console.log(closure());
+        // console.log(closure());
+
+        const fnOuter = () => {
+            let a = 0;
+
+            const fnInner = (b) => {
+                a += b;
+                return a;
+            };
+            return fnInner;
+        };
+
+        const fnSum = fnOuter();
+
+        console.log(fnSum(2));
+        console.log(fnSum(4));
+
+    </script>
+</body>
+
+</html>

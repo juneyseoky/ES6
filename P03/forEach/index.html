@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach</title>
+    <style>
+        div#wrap {
+            width: 400px;
+            padding: 10px;
+            border: 2px solid #000;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>forEach() 메서드</h1>
+        <p>키위</p>
+        <hr>
+        <p>딸기</p>
+        <div>
+            <p>오렌지</p>
+        </div>
+    </div>
+
+    <script>
+        //배열
+        const ary = [24, 31, -7, 4];
+        ary.forEach((v, i) => {
+            console.log(`${v}, ${i}`);
+        });
+        console.log("=======================");
+        // Dom 컬렉션(Collection)
+        const pDom = document.querySelectorAll("p");
+        pDom.forEach((e, i) => {
+            console.log(e.innerText, i);
+        });
+        console.log("=======================");
+        // Map 객체 
+        const goods = new Map([
+            ["bag", "백팩"],
+            ["food", "버거"],
+            ["car", "현대"]
+        ]);
+        goods.forEach((v, k) => {
+            console.log(v, k);
+        })
+    </script>
+</body>
+
+</html>

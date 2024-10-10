@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listeral</title>
+    <style>
+        div#wrap {
+            width: 500px;
+            padding: 10px;
+            border: 2px solid #aaa;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>리터럴 객체 관련 함수</h1>
+
+    </div>
+    <script>
+        // objApple (=리터럴 객체)
+        const objApple = {
+            // 키 : 값
+            // 속성 : 속성값
+            // 이름 : (속성)값
+            color: "빨강",
+            taste: "새콤달콘",
+            price: 2000
+        };
+        console.log(objApple.color);
+        for (const key in objApple) {
+            console.log(objApple[key]);
+        }
+        console.log("-------------------");
+        const person = {
+            firstName: "JuneSeok",
+            lastName: "Oh",
+            fullName: function (x, y) {
+                return x + ' ' + y;
+            }
+        };
+        const test = {
+            firstName: "DongSeok",
+            lastName: "Ma"
+        };
+        const a = 0;
+        console.log(person.fullName.call(a, "김", "태리"));
+        // call() 함수에 인자를 하나씩 나열해서 전달
+        console.log(person.fullName.apply(test, ["오", "준석"]));
+        // apply() 함수에 인자를 배열로 전달
+
+        console.log("-------------------");
+        // bind() 즉시 호출하지 않고 새로운 함수를 호출할때 사용
+        const sample = {
+            display: function (p1, p2) {
+                p1++, p2--;
+                console.log(p1 + " " + p2);
+                console.log("-------------------");
+            }
+        }
+
+        let sam = sample.display.bind(sample, 1, 2);
+        setTimeout(sam, 2000);
+
+    </script>
+</body>
+
+</html>

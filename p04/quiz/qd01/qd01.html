@@ -5,6 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>수험생 성적 처리</title>
+    <style>
+        div#wrap {
+            width: 350px;
+            border: 3px solid #aaa;
+            margin: 0 auto;
+            border-radius: 8px;
+            padding: 10px 20px;
+        }
+
+        main#main {
+            display: flex;
+            align-items: flex-end;
+
+        }
+
+        .score input {
+            width: 50px;
+            margin: 5px 0;
+        }
+
+        #btnArea {
+            margin-left: 10px;
+            padding-bottom: 4px;
+        }
+    </style>
 </head>
 
 <body>
@@ -12,30 +37,32 @@
         <h1>[수험생 성적처리]</h1>
 
         <main id="main">
-            <div class="score">
-                <span>점수1
-                </span>
-                <input type="text" id="">
-            </div>
-            <div class="score">
-                <span>점수2
-                </span>
-                <input type="text" id="">
-            </div>
-            <div class="score">
-                <span>점수3
-                </span>
-                <input type="text" id="">
-            </div>
-            <div class="score">
-                <span>점수4
-                </span>
-                <input type="text" id="">
-            </div>
-            <div class="score">
-                <span>점수5
-                </span>
-                <input type="text" id="">
+            <div id="scorebox">
+                <div class="score">
+                    <span>점수1
+                    </span>
+                    <input type="text" id="">
+                </div>
+                <div class="score">
+                    <span>점수2
+                    </span>
+                    <input type="text" id="">
+                </div>
+                <div class="score">
+                    <span>점수3
+                    </span>
+                    <input type="text" id="">
+                </div>
+                <div class="score">
+                    <span>점수4
+                    </span>
+                    <input type="text" id="">
+                </div>
+                <div class="score">
+                    <span>점수5
+                    </span>
+                    <input type="text" id="">
+                </div>
             </div>
             <div id="btnArea">
                 <button>결과보기</button>
@@ -58,24 +85,29 @@
     </div>
     <script>
         const submitBtn = document.querySelector("button");
-        const resArea = document.querySelector("#sortTxt");
-        const avgArea = document.querySelector("#avgTxt");
-        const besterArea = document.querySelector("#besterTxt");
-        let array = [];
         submitBtn.addEventListener("click", () => {
+            const resArea = document.querySelector("#sortTxt");
+            const avgArea = document.querySelector("#avgTxt");
+            const besterArea = document.querySelector("#besterTxt");
+            let array = [];
             let listDom = document.querySelectorAll("input");
             listDom.forEach((v, i) => {
                 if (parseInt(v.value)) {
                     array.push(parseInt(v.value));
                 }
                 console.log(parseInt(v.value));
+                // filter를 사용할때는 함수를 정의 해야되고
+                // 리턴값들이 하나의 배열로 정의된다.
+                // let newAry = array.filter(()=>{
+                //     return isNaN(v.value)
+                // })
             });
+
             array.sort((a, b) => b - a);
+            let num = avg(array) / array.length;
+
             besterArea.innerText = array[0];
             resArea.innerText = array.join(", ");
-            console.log(array.join(", "));
-            let num = avg(array) / array.length;
-            console.log(num.toFixed(1));
             avgArea.innerText = num.toFixed(1);
         });
 

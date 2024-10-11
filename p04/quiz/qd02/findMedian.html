@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중앙값 산출</title>
+    <style>
+        div#wrap {
+            width: 300px;
+            border: 3px solid #aaa;
+            padding: 10px 20px;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 8px 5px;
+            margin: 10px 0;
+        }
+
+        fieldset {
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>중앙값 산출</h1>
+        <hr>
+        <button id="inputlist">배열 값 입력하기</button>
+        <fieldset>
+            <legend>입력된 배열 값</legend>
+            <span id="listTxtArea"></span>
+        </fieldset>
+        <button id="findmedian">Median 찾기</button>
+        <fieldset>
+            <legend>중앙값</legend>
+            <span id="medianArea"></span>
+        </fieldset>
+    </div>
+    <script>
+        const inputDom = document.querySelector("#inputlist");
+        const findDom = document.querySelector("#findmedian");
+        const txtArea = document.querySelector("#listTxtArea");
+        const medArea = document.querySelector("#medianArea");
+        let numAry = [];
+        inputDom.addEventListener("click", () => {
+            numAry = [];
+            let cnt = 1;
+            while (true) {
+                let num = prompt(`${cnt} 번째 숫자 입력`);
+                if (num == 999 || num == null) {
+                    break;
+                } else {
+                    numAry.push(num);
+                    cnt++;
+                }
+            }
+            txtArea.innerText = numAry.join(", ");
+        });
+
+        findDom.addEventListener("click", () => {
+            let res = median(numAry);
+            medArea.innerText = res;
+        });
+
+        function median(ary) {
+            let sum = 0;
+            let mda = 0;
+            ary.sort((a, b) => a - b)
+            if (ary.length % 2 == 0) {
+                sum = Number(ary[(ary.length / 2) - 1]) + Number(ary[(ary.length / 2)]);
+                mda = sum / 2;
+            } else {
+                mda = Number(ary[Math.floor((ary.length / 2))]).toFixed(1)
+            }
+            return mda;
+        }
+
+    </script>
+</body>
+
+</html>

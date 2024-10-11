@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리터럴 객체</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>리터럴객체</h1>
+        <hr>
+    </div>
+    <script>
+
+        // 리터럴 객체 안에 있는 동작 객체는
+        // funtion으로 정의할때 this를 사용시 this는
+        // 객체의 키를 가르킨다.
+        const Kim = {
+            name: "Kim",
+            birthYear: 1988,
+            hobby: "swim",
+            fnAge: function () {
+                return 2022 - this.birthYear + 1
+            }
+        };
+        console.log(Kim.fnAge());
+        // 리터럴 객체 안에 있는 동작 객체는
+        // ()=>{}으로 정의할때 this를 사용할 수 없다.
+        // 사용을 할시 ()=>{} 안에 변수를 정의해야 사용할수 있다.
+        const person = {
+            name: "Kim",
+            birthYear: 1988,
+            hobby: "swim",
+            fnAge: () => {
+                birthYear = 1998;
+                return 2022 - this.birthYear + 1
+            }
+        };
+        console.log(person.fnAge());
+
+        const test = {
+            a: 50,
+            name: "Lee",
+            count: 6
+        };
+
+        delete test.a;
+        console.log(Object.entries(test).join(", "));
+    </script>
+</body>
+
+</html>

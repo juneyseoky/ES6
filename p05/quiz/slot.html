@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마법의 슬롯</title>
+    <style>
+        div#wrap {
+            width: 200px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 3px solid #aaa;
+            border-radius: 8px;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        div#startArea,
+        div#goAndReset {
+            margin: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        input {
+            width: 20px;
+            padding: 5px 10px;
+        }
+
+        button {
+            width: 40px;
+            padding: 8px;
+        }
+
+        button:last-child {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>번호 추첨</h1>
+        <div id="startArea">
+            <input type="text" id="0">
+            <input type="text" id="1">
+            <input type="text" id="2">
+            <button id="start">Start</button>
+        </div>
+        <div id="goAndReset">
+            <button class="go" id="go0">Go!</button>
+            <button class="go" id="go1">Go!</button>
+            <button class="go" id="go2">Go!</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        const btnDom = document.querySelectorAll("button");
+        const inDom = document.querySelectorAll("input");
+        let numbers = [];
+        let intervalId1, intervalId2, intervalId3;
+        let inValue;
+        console.log(numbers);
+
+        btnDom.forEach(btn => {
+            btn.addEventListener("click", (event) => {
+                if (event.target.id == "start") {
+                    const availableNumbers = Array.from({ length: 10 - 1 + 1 }, (_, i) => i + 1);
+                    while (numbers.length < 3) {
+                        // 랜덤 인덱스 뽑기
+                        const randomIndex = Math.floor(Math.random() * availableNumbers.length);
+                        // 해당 인덱스의 값을 배열에서 제거하고 선택
+                        const selectedNumber = availableNumbers.splice(randomIndex, 1)[0];
+                        numbers.push(selectedNumber);
+                    }
+                    intervalId1 = setInterval(start, 100, 0);
+                    intervalId2 = setInterval(start, 100, 1);
+                    intervalId3 = setInterval(start, 100, 2);
+                } else if (event.target.className == "go") {
+                    go(event.target);
+                } else if (event.target.id == "reset") {
+                    inDom.forEach(e => {
+                        numbers = [];
+                        e.value = "";
+                    });
+                }
+            })
+        });
+
+        function start(i) {
+            let inputs = document.getElementById(i);
+            let num = Math.floor(Math.random() * 5) + 1;
+            inputs.value = num;
+
+        }
+
+        function go(e) {
+            let inputId = e.id.split("go")[1];
+            if (numbers.length == 0) {
+                alert("start를 눌러 주세요");
+                return
+            } else {
+
+                if (inputId == 0) {
+                    clearInterval(intervalId1);
+                    inDom[0].value = numbers[0]
+                } else if (inputId == 1) {
+                    clearInterval(intervalId2);
+                    inDom[1].value = numbers[1]
+                } else if (inputId == 2) {
+                    clearInterval(intervalId3);
+                    inDom[2].value = numbers[2];
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

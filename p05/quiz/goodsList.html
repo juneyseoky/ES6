@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 리스트</title>
+    <style>
+        div#wrap {
+            width: 300px;
+            border: 3px solid #aaa;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        div#goodsAddArea,
+        div#goodsListArea {
+            border: 2px solid #aaa;
+            border-radius: 9px;
+            margin: 15px 0;
+            padding: 0 10px;
+        }
+
+        div#goods {
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+        }
+
+        div#goodsAddArea>*,
+        div#goodsListArea>* {
+            padding: 0 5px;
+            margin: 5px 0;
+        }
+
+
+        div#goodsName {
+            flex: 1;
+        }
+
+        div#goodsCount {
+            width: 100px;
+        }
+
+        input {
+            width: 90%;
+        }
+
+        div#goodsAddBtnArea {
+            width: 96%;
+            padding: 0 8px;
+        }
+
+        div#goodsAddBtnArea>button {
+            width: 100%;
+
+        }
+
+        table>thead>th {
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="goodsAddArea">
+            <h1>상품재고등록</h1>
+            <hr>
+            <div id="goods">
+                <div id="goodsName">
+                    <span>상품명</span>
+                    <input type="text" id="goodsName">
+                </div>
+                <div id="goodsCount">
+                    <span>수량</span>
+                    <input type="number" id="goodsCnt">
+                </div>
+            </div>
+            <div id="goodsAddBtnArea">
+                <button id="goodsAddBtn">등록하기</button>
+            </div>
+        </div>
+        <div id="goodsListArea">
+            <h1>재고목록</h1>
+            <hr>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>상품명</th>
+                        <th>수량</th>
+                        <th>삭제</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let goodsList = [];
+        let cnt = 1;
+        const addbtnDom = document.querySelector("#goodsAddBtn");
+        const goodsNameDom = document.querySelector("input#goodsName");
+        const goodsCntDom = document.querySelector("#goodsCnt");
+        addbtnDom.addEventListener("click", () => {
+            let addAsk = confirm("상품을 등록하시겠습니까?")
+            let valChk = valueChk(goodsNameDom.value, goodsCntDom.value);
+            if (addAsk == true && valChk == true) {
+
+                let goodsMap = new Map();
+                // goodsMap.set("goodsNo", cnt)
+                goodsMap.set("goodsName", goodsNameDom.value);
+                goodsMap.set("goodscnt", goodsCntDom.value);
+                goodsList.push(goodsMap);
+                addList();
+            } else {
+                return
+            }
+        });
+        function valueChk(name, cnt) {
+            if (name == "" || cnt == "") {
+                alert("상품명과 수량을 적어주세요.")
+                return false
+            } else {
+                return true
+            }
+        }
+
+        function addList() {
+            let tag = "";
+            const tableTbody = document.querySelector("tbody");
+            let noNum = goodsList.length
+            goodsList.reverse().forEach((e, i) => {
+                tag += `<tr id =${i}>`;
+                tag += `<td>${noNum}</td>`;
+                tag += `<td>${e.get("goodsName")}</td>`;
+                tag += `<td>${e.get("goodscnt")}</td>`;
+                tag += `<td class="close">x</td>`;
+                tag += "</tr>";
+                noNum--;
+            });
+
+            tableTbody.innerHTML = tag;
+            const tdDom = document.querySelectorAll("td.close");
+            tdDom.forEach((td) => {
+                td.addEventListener("click", (event) => {
+                    console.log("td : " + event.target.parentElement.id);
+                    let idx = Number(event.target.parentElement.id);
+                    goodsList.splice(idx, 1);
+                    addList();
+                });
+            });
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리터럴 객체 메서드</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>리터럴 객체 메서드</h1>
+        <p id="res"></p>
+    </div>
+    <script>
+        // entries() => 모든 항목(=모든 속성)
+        const sample = {
+            goods: '의자',
+            count: 5
+        };
+
+        const res = Object.entries(sample);
+        // console 창에 띄울대는 toString() 을 사용한다.
+        console.log(Object.entries(sample).toString());
+        document.querySelector("#res").innerText = res;
+
+        // Key값만 가져 오는 메서드 
+        console.log(Object.keys(sample).toString());
+
+        // value값만 가져 오는 메서드
+        console.log(Object.values(sample).toString());
+
+
+        // for 제어문을 사용한 객체 활용
+
+        // 1. 일반적인 for문 => for(let i=0; i<범위, i++){...}
+        //                      배열에 활용
+        // for-in 제어문 => 배열에 활용
+        //                  *리터럴 객체에서 사용
+        //                  entries() 메서드를 활용하여
+        //                  리터럴 객체를 for-of 제어문과
+        //                  forEach() 메서드에서 사용할 수 있음
+        // for-of 제어문 => 배열에 활용
+        //                  *리터럴 객체에서 사용
+        //                  entries() 메서드를 활용하여
+        //                  리터럴 객체를 for-of 제어문과
+        //                  forEach() 메서드에서 사용할 수 있음
+        // forEach 제어문 => 배열에 활용
+        //                  *리터럴 객체에서 사용
+        //                  entries() 메서드를 활용하여
+        //                  리터럴 객체를 for-of 제어문과
+        //                  forEach() 메서드에서 사용할 수 있음
+    </script>
+
+</body>
+
+</html>

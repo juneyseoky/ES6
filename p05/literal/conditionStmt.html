@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리터럴 객체 for-in 제어문</title>
+</head>
+
+<body>
+    <h1>리터럴 객체 for-in 제어문</h1>
+    <script>
+        // for-in 제어문 => 배열에 활용
+        //                  *리터럴 객체에서 사용
+        //                  entries() 메서드를 활용하여
+        //                  리터럴 객체를 for-of 제어문과
+        //                  forEach() 메서드에서 사용할 수 있음
+        const sample = {
+            goods: '의자',
+            count: 5
+        };
+
+        // for (const key in sample) {
+        //     // for(let key, value in sample) 사용X 
+        //     console.log(key);
+        //     console.log(sample[key]);
+        // }
+
+        // 리터럴 객체를 entries() 로 사용하면 for-of 사용 가능
+        let x = Object.entries(sample);
+        // for (const [key, value] of x) {
+        //     // for(let key, value in sample) 사용X 
+        //     console.log(key);
+        //     console.log(value);
+        // }
+
+        x.forEach((e, i) => {
+            console.log(e.toString());
+            console.log(i);
+        });
+
+
+    </script>
+</body>
+
+</html>

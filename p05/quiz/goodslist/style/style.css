@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+
+div#wrap {
+    width: 300px;
+    border: 3px solid #aaa;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+div#goodsAddArea,
+div#goodsListArea {
+    border: 2px solid #aaa;
+    border-radius: 9px;
+    margin: 15px 0;
+    padding: 0 10px 10px;
+}
+
+div#goods {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+div#goodsAddArea>*,
+div#goodsListArea>* {
+    padding: 0 5px;
+    margin: 5px 0;
+}
+
+
+div#goodsName {
+    flex: 1;
+}
+
+div#goodsCount {
+    width: 100px;
+}
+
+input {
+    width: 90%;
+    padding: 4px;
+    /* margin: 0 5px; */
+}
+
+div#goodsAddBtnArea {
+    width: 96%;
+    padding: 0 8px;
+    margin-bottom: 10px;
+}
+
+div#goodsAddBtnArea>button {
+    width: 100%;
+    padding: 5px 10px;
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table>thead>tr {
+    display: flex;
+    justify-content: space-between;
+}
+
+table>tbody>tr {
+    display: flex;
+    justify-content: space-between;
+}
+
+table>thead>tr>th {
+    text-align: center;
+    border-bottom: 1px dotted #aaa;
+    font-weight: normal;
+}
+
+table>tbody>tr>td {
+    display: inline-block;
+    text-align: center;
+}
+
+
+th:first-child {
+    width: 30px;
+}
+
+th:nth-child(2) {
+    flex: 1;
+}
+
+th:nth-child(3) {
+    width: 40px;
+}
+
+th:last-child {
+    width: 40px;
+}
+
+td:first-child {
+    text-align: center;
+    width: 30px;
+}
+
+td:nth-child(2) {
+    flex: 1;
+    text-align: center;
+}
+
+td:nth-child(3) {
+    width: 40px;
+}
+
+td:last-child {
+    text-align: center;
+    width: 40px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+td:last-child:hover {
+    font-weight: bold;
+}

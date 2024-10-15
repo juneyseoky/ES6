@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규표현식 적용_이름</title>
+</head>
+
+<body>
+    <h1>정규표현식 적용_이름</h1>
+    <script>
+        let text = "조약돌";
+        let pattern = /^(?=.*[ㄱ-ㅎㅏ-ㅣ가-힣])[ㄱ-ㅎㅏ-ㅣ가-힣]{2,4}$/;
+        let result = pattern.test(text);
+        console.log("result : " + result);
+        if (!result) {
+            alert("이름이 잘못되었습니다.(한글만 2~4글자)");
+        } else {
+            console.log(`OK`);
+        }
+    </script>
+</body>
+
+</html>

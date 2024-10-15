@@ -1,50 +1,47 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz_번호추첨</title>
-  <link rel="stylesheet" href="style/style.css" />
-</head>
-
-<body>
-  <div id="wrap">
-    <h1>번호 추첨</h1>
-    <main id="main">
-      <form>
-        <table id="tblLayout">
-          <tbody>
-            <tr>
-              <td><input type="text" id="numPrn1" class="numPrn" /></td>
-              <td><input type="text" id="numPrn2" class="numPrn" /></td>
-              <td><input type="text" id="numPrn3" class="numPrn" /></td>
-              <td>
-                <button id="btnStart" class="btnStyle" type="button">
-                  Start
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <button id="btnGo1" type="button" class="btnGo">Go!</button>
-              </td>
-              <td>
-                <button id="btnGo2" type="button" class="btnGo">Go!</button>
-              </td>
-              <td>
-                <button id="btnGo3" type="button" class="btnGo">Go!</button>
-              </td>
-              <td>
-                <button type="reset" class="btnStyle" id="btnReset">Reset</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </form>
-    </main>
-  </div>
-  <script src="script/script.js"></script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz_번호추첨</title>
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <div id="wrap">
+      <h1>번호 추첨</h1>
+      <main id="main">
+        <form>
+          <table id="tblLayout">
+            <tbody>
+              <tr>
+                <td><input type="text" id="numPrn1" class="numPrn"/></td>
+                <td><input type="text" id="numPrn2" class="numPrn"/></td>
+                <td><input type="text" id="numPrn3" class="numPrn"/></td>
+                <td>
+                  <button id="btnStart" class="btnStyle" type="button">
+                    Start
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button id="btnGo1" type="button" class="btnGo">Go!</button>
+                </td>
+                <td>
+                  <button id="btnGo2" type="button" class="btnGo">Go!</button>
+                </td>
+                <td>
+                  <button id="btnGo3" type="button" class="btnGo">Go!</button>
+                </td>
+                <td>
+                  <button type="reset" id="btnReset" class="btnStyle">Reset</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </main>
+    </div>
+    <script src="script/script.js"></script>
+  </body>
 </html>

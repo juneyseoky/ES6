@@ -1,0 +1,101 @@
+@charset "UTF-8";
+@import url(style_Reset.css);
+
+div#wrap {
+  width: 420px;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px auto;
+}
+
+h1 {
+  text-indent: 40px;
+}
+hr {
+  border: 2px solid #000;
+  margin: 10px 0;
+}
+
+/* 상품재고등록 시작 */
+div#registArea {
+  padding: 15px;
+  border: 3px solid #aaa;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+#registArea main#regMain .regColumn span {
+  font-size: 19px;
+  font-weight: bold;
+  text-align: center;
+  /* border: 1px solid #000; */
+  margin: 4px 2px;
+}
+main#regMain div.regColumn>span:nth-child(1) {
+  flex: 1;
+}
+main#regMain div.regColumn>span:nth-child(2) {
+  width: 100px;
+}
+
+#regMain .regColumn>span>input {
+  width: 100%;
+  font-size: 17px;
+  padding: 12px 10px;
+}
+
+div#insBtnArea {
+  padding: 2px;
+}
+div#insBtnArea>button {
+  width: 100%;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 12px;
+  cursor: pointer;
+}
+/* 상품재고등록 끝 */
+
+/* 상품목록 시작 */
+div#listArea {
+  padding: 15px;
+  border: 3px solid #aaa;
+  border-radius: 6px;
+}
+
+#listArea main#listMain .listColumn span {
+  font-size: 19px;
+  /* font-weight: bold; */
+  text-align: center;
+  /* border: 1px solid #000; */
+  margin: 4px 2px;
+}
+main#listMain div.listColumn>span:nth-child(1) {
+  width: 40px;
+}
+main#listMain div.listColumn>span:nth-child(2) {
+  flex: 1;
+}
+main#listMain div.listColumn>span:nth-child(3) {
+  width: 60px;
+}
+main#listMain div.listColumn>span:nth-child(4) {
+  width: 40px;
+}
+
+hr#listHR {
+  border: 1px dotted #555;
+}
+
+div.listColumn {
+  border: 1px solid #fff;
+  margin-bottom: 6px;
+}
+div.listColumn:hover {
+  border-bottom: 1px solid #000;
+  background-color: rgba(136, 136, 136, 0.1);
+}
+span.delIcon:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+/* 상품목록 끝 */

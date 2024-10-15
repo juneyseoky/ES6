@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스</title>
+</head>
+
+<body>
+    <h1>클래스</h1>
+    <script>
+        class Car {
+            constructor(name) {
+                this.name = name
+
+            }
+
+            age() {
+                let date = new Date();
+                return date.getFullYear() - this.year;
+            }
+            get name() {
+                return this._name;
+            }
+            set name(x) {
+                this._name = x;
+            }
+        }
+
+        let myCar = new Car("hyundae");
+        console.log(myCar._name);
+        myCar.name = "Kia";
+        console.log(myCar._name);
+    </script>
+</body>
+
+</html>

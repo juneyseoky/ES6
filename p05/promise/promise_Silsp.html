@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Function</title>
+</head>
+
+<body>
+    <h1>Promise 기초사용법</h1>
+    <script>
+        let objProm = new Promise(function (resolve, reject) {
+            // 생성코드 시작
+            let x = 0;
+
+            // ....
+            if (x == 0) {
+                resolve("OK!!");
+            } else {
+                reject("Error!!");
+            }
+        });
+
+        objProm.then(
+            function (v) {
+                console.log("정상실행 : " + v);
+            },
+            function (e) {
+                console.log("에러발생 : " + e);
+            }
+        );
+        // promise 함수 사용
+        function sample(resolve) {
+            return Promise.resolve("OK333!");
+        }
+
+        sample().then(
+            function (v) { console.log("sample 정상실행 : " + v) }
+        )
+
+        // async 사용
+        async function sample2(resolve) {
+            let objProm2 = new Promise(function (resolve) {
+                resolve("OK333!");
+            });
+            // return "OK async";
+            console.log("누구야 정상실행 : " + await objProm2);
+        }
+        sample2();
+        // sample2().then(
+        //     (v) => { console.log("async 정상실행 : " + v) }
+        // )
+
+        const promise1 = new Promise((resolve, reject) => {
+            // 비동기 작업 1 실행
+            setTimeout(() => {
+                resolve("값 1");
+            }, 1000);
+        });
+
+        const promise2 = new Promise((resolve, reject) => {
+            // 비동기 작업 2 실행
+            setTimeout(() => {
+                reject("오류");
+            }, 2000);
+        });
+
+        promise1.then((value1) => {
+            // promise1이 이행되면 실행
+            console.log(value1); // "값 1"
+            return promise2;
+        }).then((value2) => {
+            // promise2가 이행되면 실행
+            console.log(value2); // 실행되지 않음
+        }).catch((error) => {
+            // promise가 거부되면 실행
+            console.log(error); // "오류"
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        h1 {
+            margin-top: 0px;
+            background-color: skyblue;
+            border-bottom: 4px solid #aaa;
+            text-align: center;
+        }
+
+        div#wrap {
+            border: 2px solid #aaa;
+            padding: 8px;
+            margin: 0 auto;
+            width: 420px;
+        }
+
+        span {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        div#butt {
+            text-align: center;
+        }
+
+        p {
+            margin-left: 115px;
+            font-size: 13px;
+        }
+
+        input[type=text] {
+            height: 25px;
+
+        }
+
+        button {
+            height: 30px;
+            width: 110px;
+            background-color: rgb(12, 112, 151);
+            border-radius: 3px;
+            color: white;
+            border: none;
+        }
+
+        #code {
+            margin-left: 35px;
+        }
+
+        #goodsName {
+            margin-left: 55px;
+        }
+
+        #userName {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <head>
+            <h1>상품등록</h1>
+        </head>
+        <div><span>상품코드</span>
+            <input type="text" id="code" />
+        </div>
+        <p>영어/숫자 각1개이상,#,_,-만 허용(글자수 5~15)</p>
+        <hr />
+        <div class="fl"><span>상품명</span>
+            <input type="text" id="goodsName" />
+        </div>
+        <p>한글,영어,숫자허용, 기호는#만 허용함(2글자 이상)</p>
+        <hr />
+        <div class="fl"><span>담당자 이름</span>
+            <input type="text" id="userName" />
+        </div>
+        <p>한글만 2~5글자</p>
+        <hr />
+        <div class="fl">
+            <span>검수확인</span>
+            <input type="checkbox" id="check" /> 담당자 상품 검수확인
+        </div>
+        <br />
+        <hr />
+        <div id="butt">
+            <button id="inputB">등록하기</button>
+            <button>다시쓰기</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("inputB").addEventListener("click", () => {
+            const code = document.getElementById("code").value;
+            const goodsName = document.getElementById("goodsName").value;
+            const userName = document.getElementById("userName").value;
+            const check = document.getElementById("check").checked;
+
+            const codePattern = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9#_-]{5,15}$/;
+            const goodsNPattern = /^[가-힣a-zA-Z0-9#]{2,}$/;
+            const userNPattern = /^[가-힣]{2,5}$/;
+
+            if (!codePattern.test(code)) {
+                alert(
+                    "상품코드는 5~8글자로 영어 1글자 이상, 숫자 1글자 이상, #, _, - 만 가능합니다"
+                );
+                return
+            }
+            if (!goodsNPattern.test(goodsName)) {
+                alert("상품명은 2글자 이상으로 한글과 영어,숫자 및 특수기호 #만 가능합니다.");
+                return
+
+            }
+            if (!userNPattern.test(userName)) {
+                alert("담당자 이름은 2~5글자로 한글만 가능합니다.");
+                return
+
+            }
+            if (!check) {
+                alert("상품 검수확인을 체크해주세요.");
+                return
+
+            }
+            alert('등록완료');
+
+
+        });
+
+
+    </script>
+</body>
+
+</html>

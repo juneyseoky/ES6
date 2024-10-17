@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품등록</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+            <h1>상품등록</h1>
+        </header>
+        <hr>
+        <main id="main">
+            <div id="goodsCodeArea">
+                <label>
+                    <div class="labelTxt">상품코드</div>
+                    <div class="inputArea">
+                        <input type="text" name="code">
+                        <p>영어/숫자 각 1개이상 ,#,_,-만 허용(글자수 5~15)</p>
+                    </div>
+                </label>
+            </div>
+            <hr>
+            <div id="goodsNameArea">
+                <label>
+                    <div class="labelTxt">상품명</div>
+                    <div class="inputArea">
+                        <input type="text" name="item">
+                        <p>한글, 영어, 숫자허용, 기호는 #만 허용함(2글자 이상)</p>
+                    </div>
+                </label>
+            </div>
+            <hr>
+            <div id="managerName">
+                <label>
+                    <div class="labelTxt">담당자 이름</div>
+                    <div class="inputArea">
+                        <input type="text" name="manager">
+                        <p>한글만 2~5글자</p>
+                    </div>
+                </label>
+            </div>
+            <hr>
+            <div id="goodsCheckArea">
+                <label>
+                    <div class="labelTxt">검수확인</div>
+                    <div class="inputArea">
+                        <input type="checkbox" name="inspection">
+                        <p>담당자 상품 검수 확인</p>
+                    </div>
+                </label>
+            </div>
+            <hr>
+        </main>
+        <footer id="footer">
+            <button>등록하기</button>
+            <button>다시쓰기</button>
+        </footer>
+    </div>
+    <script src="script/script.js"></script>
+</body>
+
+</html>
